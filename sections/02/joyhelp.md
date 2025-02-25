@@ -8,19 +8,73 @@ docker attach CONTAINER
 
 ## 33. 인터렉티브 모드로 들어가기
 
+```
+`docker exec -it` 명령어는 실행 중인 Docker 컨테이너 내부에서 명령어를 실행할 때 사용됩니다. 이 명령어는 주로 컨테이너 내부로 진입하여 쉘을 실행하거나 특정 작업을 수행하는 데 유용합니다.
+
+`docker exec` 명령어는 다음과 같이 구성됩니다:
+
+```sh
+docker exec -it <container_name_or_id> <command>
+```
+
+- `-i`: 인터랙티브 모드(interactive mode)를 의미합니다. 이를 통해 표준 입력(stdin)을 컨테이너에 연결합니다.
+- `-t`: TTY(가상 터미널)를 할당합니다. 이를 통해 컨테이너 내에서 터미널 기능을 사용할 수 있게 됩니다.
+- `<container_name_or_id>`: 명령어를 실행할 대상 컨테이너의 이름 또는 ID를 지정합니다.
+- `<command>`: 컨테이너 내에서 실행할 명령어를 지정합니다.
+
+### 예시
+
+컨테이너 내에서 bash 셸을 실행하는 예시:
+
+```sh
+docker exec -it my_container /bin/bash
+```
+
+위 명령어는 `my_container`라는 이름의 컨테이너 내부로 진입하여 `/bin/bash` 셸을 실행합니다. 이제 터미널에서 컨테이너 내부의 bash 셸을 사용할 수 있습니다.
+
+컨테이너 내에서 특정 명령어를 실행하는 예시:
+
+```sh
+docker exec -it my_container ls /app
+```
+
+위 명령어는 `my_container`라는 이름의 컨테이너 내에서 `/app` 디렉터리의 내용을 나열하는 `ls` 명령어를 실행합니다.
+
+이 명령어는 디버깅, 실시간 작업, 컨테이너 내부의 파일 및 프로세스 관리 등 다양한 용도로 사용될 수 있습니다. 도움이 되었길 바랍니다! 😊
+
+다른 질문이나 도움이 필요하시면 언제든지 말씀해 주세요.
+```
 ## 34. 이미지 & 컨테이너 삭제하기
 
+```
+
+```
 ## 35. 중지된 컨테이너 자동 제거하기
 
-### [Docker 명령어 요약] 
+```
 
-## docker prune 커맨드
+```
+## [Docker 명령어 요약] 
+
+```
+# Docker 이미지 확인
+- docker image ls
+
+# 새로운 이미지 태그 지정 (alpine:3.10 -> alpine:custom_3.10)
+docker image tag alpine:3.10 alpine:custom_3.10
+
+# 새로운 Docker 이미지 확인
+docker image ls
+
+```
+
+# docker prune 커맨드
 - docker container prune : 중지된 모든 컨테이너를 삭제
 - docker image prune : 이름 없는 모든 이미지를 삭제
 - docker network prune : 사용되지 않는 도커 네트워크를 모두 삭제
 - docker volume prune : 도커 컨테이너에서 사용하지 않는 모든 도커 볼륨을 삭제
 
-## docker 컨테이너 로그 확인
+# docker 컨테이너 로그 확인
 ```
 docker logs -f --tail --it $container-ps-id
 
