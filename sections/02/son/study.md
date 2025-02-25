@@ -80,30 +80,31 @@ docker run -p 3000:80 -d --rm --name myson f01287d93b1a
 
 # dockerfile 작성 예시
 ---------------------
-### 베이스 이미지 설정 (기본적으로 최신 node.js 이미지를 사용)
-FROM node
+ ### FROM node
+>베이스 이미지 설정 (기본적으로 최신 node.js 이미지를 사용)
 
-### 컨테이너 내부 작업 디렉토리 설정 (절대 경로)
-WORKDIR /app
+### WORKDIR /app
+>컨테이너 내부 작업 디렉토리 설정 (절대 경로)
 
-### package.json 파일만 먼저 복사
-COPY package.json /app
+### COPY package.json /app
+>package.json 파일만 먼저 복사
 
-### 패키지 설치 (의존성 설치)
-### 최적화 포인트
-RUN npm install
+### RUN npm install
+>패키지 설치 (의존성 설치) | 최적화 포인트
 
-### 파일 복사: 
-### - 첫 번째 인자 `.`: Dockerfile이 있는 디렉토리의 모든 파일을 의미
-### - 두 번째 인자 `./`: 컨테이너 내부의 현재 작업 디렉토리 (`WORKDIR`에서 지정한 `/app`)를 의미
-COPY . /app
+### COPY . /app
+>파일 복사: 
+>- 첫 번째 인자 `.`: Dockerfile이 있는 디렉토리의 모든 파일을 의미
+>- 두 번째 인자 `./`: 컨테이너 내부의 현재 작업 디렉토리 (`WORKDIR`에서 지정한 `/app`)를 의미
 
-### 컨테이너가 외부에서 접근할 수 있도록 포트 80을 개방
-EXPOSE 80
+### EXPOSE 80
+>컨테이너가 외부에서 접근할 수 있도록 포트 80을 개방
 
-### 컨테이너 실행 시 실행할 명령 설정
-### 주의: CMD는 배열 형식일 경우 쉘을 거치지 않고 직접 실행됨
-CMD ["node", "server.js"]
+### CMD ["node", "server.js"]
+>컨테이너 실행 시 실행할 명령 설정
+
+>주의: CMD는 배열 형식일 경우 쉘을 거치지 않고 직접 실행됨
+
 ------------------------------------------
 
 # COPY와 ADD의 차이 
