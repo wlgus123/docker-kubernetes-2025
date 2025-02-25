@@ -158,13 +158,13 @@ docker image ls
 
 ```
 
-# docker prune 커맨드
+## docker prune 커맨드
 - docker container prune : 중지된 모든 컨테이너를 삭제
 - docker image prune : 이름 없는 모든 이미지를 삭제
 - docker network prune : 사용되지 않는 도커 네트워크를 모두 삭제
 - docker volume prune : 도커 컨테이너에서 사용하지 않는 모든 도커 볼륨을 삭제
 
-# docker 컨테이너 로그 확인
+## docker 컨테이너 로그 확인
 ```
 docker logs -f --tail --it $container-ps-id
 
