@@ -1,4 +1,4 @@
-# Dockerfile 구조
+# **`Dockerfile 구조`**
 Dockerfile은 **Docker 이미지**를 생성하기 위한 **명령어와 설정 파일**입니다. 
 
 각 명령어는 이미지의 **계층(layer)**을 형성하며, Docker는 이를 조합해 최종 이미지를 만듭니다.
@@ -168,7 +168,7 @@ CMD ["node", "server.js"]
 
 ---
 
-## **Dockerfile 빌드 및 실행**
+# **Dockerfile 빌드 및 실행**
 
 ### **이미지 빌드**
 ```bash
@@ -191,7 +191,7 @@ docker run -d -p 3000:3000 mynodeapp
 6️⃣ **ENV**: 환경 변수  
 7️⃣ **EXPOSE**: 포트 노출  
 8️⃣ **CMD**: 기본 실행 명령  
-9️⃣ **ENTRYPOINT**: 기본 실행 명령 
+9️⃣ **ENTRYPOINT**: 기본 실행 명령  
 🔟 **VOLUME**: 데이터 저장소  
 1️⃣1️⃣ **USER**: 실행 사용자  
 1️⃣2️⃣ **HEALTHCHECK**: 상태 점검  
