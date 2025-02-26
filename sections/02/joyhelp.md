@@ -147,6 +147,18 @@ docker run --rm ubuntu echo "Hello, World!"
 ## [Docker 명령어 요약] 
 
 ```
+# Docker 기본 명령어
+
+옵션	내용
+-d	detached mode
+-p	포트 포워딩 HOST:CONTAINER
+-v	디렉토리 마운팅 HOST:CONTAINER
+-e	컨테이너에서 사용할 환경변수 설정
+-name	컨테이너 이름
+-rm	컨테이너 제거
+-rmi	이미지 제거
+-it	터미널 입력
+
 # Docker 이미지 확인
 - docker image ls
 
