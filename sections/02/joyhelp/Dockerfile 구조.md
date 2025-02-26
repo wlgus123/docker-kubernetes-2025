@@ -157,7 +157,7 @@ COPY package*.json ./
 RUN npm install --production
 
 # 5. 애플리케이션 소스 복사
-COPY . .
+COPY .. .
 
 # 6. 애플리케이션이 사용하는 포트 노출
 EXPOSE 3000
