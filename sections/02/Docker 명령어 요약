@@ -1,6 +1,6 @@
 ## [Docker 명령어 요약] 
 
-`docker run`과 `docker start`는 모두 Docker 컨테이너를 실행하는 명령어이지만, **용도와 동작 방식**에 차이가 있습니다. 아래에서 자세히 설명할게요.
+`docker run`과 `docker start`는 모두 Docker 컨테이너를 실행하는 명령어이지만, **용도와 동작 방식**에 차이가 있습니다. 
 
 ---
 
@@ -119,19 +119,6 @@ docker start webserver
 
 
 ```
-# Docker 기본 명령어
-
-옵션	내용
--a attach (Docker start 옵션)
--d	detached mode 
--p	포트 포워딩 HOST:CONTAINER
--v	디렉토리 마운팅 HOST:CONTAINER
--e	컨테이너에서 사용할 환경변수 설정
--name	컨테이너 이름
--rm	컨테이너 제거
--rmi	이미지 제거
--it	터미널 입력
-
 # Docker 이미지 Pull
 docker pull [이미지 이름]
 
