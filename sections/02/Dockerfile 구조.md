@@ -1,12 +1,13 @@
 # Dockerfile 구조
 Dockerfile은 **Docker 이미지**를 생성하기 위한 **명령어와 설정 파일**입니다. 
+
 각 명령어는 이미지의 **계층(layer)**을 형성하며, Docker는 이를 조합해 최종 이미지를 만듭니다.
 
 ---
 
-## 🏗️ **Dockerfile 기본 구조와 주요 명령어**  
+## ️ **Dockerfile 기본 구조와 주요 명령어**  
 
-### ✅ **1. `FROM` - 베이스 이미지 지정**  
+### **1. `FROM` - 베이스 이미지 지정**  
 이미지 생성의 **기반**이 되는 이미지를 선택합니다.  
 ```dockerfile
 FROM ubuntu:20.04
@@ -15,7 +16,7 @@ FROM ubuntu:20.04
 
 ---
 
-### ✅ **2. `LABEL` - 메타데이터 추가**  
+### **2. `LABEL` - 메타데이터 추가**  
 이미지에 **설명, 버전, 작성자** 등의 메타데이터를 추가합니다.  
 ```dockerfile
 LABEL maintainer="user@example.com" \
@@ -25,7 +26,7 @@ LABEL maintainer="user@example.com" \
 
 ---
 
-### ✅ **3. `RUN` - 명령어 실행 및 설치**  
+### **3. `RUN` - 명령어 실행 및 설치**  
 이미지 빌드 중 **패키지 설치**나 **명령어 실행**을 수행합니다.  
 ```dockerfile
 RUN apt-get update && apt-get install -y nginx
@@ -37,7 +38,7 @@ RUN apt-get update && apt-get install -y nginx
 
 ---
 
-### ✅ **4. `COPY` & `ADD` - 파일 복사**  
+### **4. `COPY` & `ADD` - 파일 복사**  
 - `COPY`: 단순히 **호스트 → 컨테이너**로 파일/디렉토리 복사  
 - `ADD`: `COPY` 기능 + **압축 파일 해제** 및 **URL 다운로드** 지원  
 ```dockerfile
@@ -47,7 +48,7 @@ ADD https://example.com/app.tar.gz /usr/src/app/
 
 ---
 
-### ✅ **5. `WORKDIR` - 작업 디렉토리 설정**  
+### **5. `WORKDIR` - 작업 디렉토리 설정**  
 명령어 실행의 **기본 경로**를 지정합니다.  
 ```dockerfile
 WORKDIR /usr/src/app
@@ -56,7 +57,7 @@ WORKDIR /usr/src/app
 
 ---
 
-### ✅ **6. `ENV` - 환경 변수 설정**  
+### **6. `ENV` - 환경 변수 설정**  
 컨테이너 내부에서 사용할 **환경 변수**를 설정합니다.  
 ```dockerfile
 ENV NODE_ENV=production
@@ -65,7 +66,7 @@ ENV PORT=3000
 
 ---
 
-### ✅ **7. `EXPOSE` - 포트 지정**  
+### **7. `EXPOSE` - 포트 지정**  
 컨테이너가 **외부와 통신**하는 포트를 정의합니다.  
 ```dockerfile
 EXPOSE 80
@@ -75,7 +76,7 @@ EXPOSE 443
 
 ---
 
-### ✅ **8. `CMD` - 컨테이너 시작 시 실행할 명령**  
+### **8. `CMD` - 컨테이너 시작 시 실행할 명령**  
 컨테이너가 시작될 때 **기본적으로 실행**할 명령을 지정합니다.  
 ```dockerfile
 CMD ["node", "app.js"]
@@ -87,7 +88,7 @@ CMD ["node", "app.js"]
 
 ---
 
-### ✅ **9. `ENTRYPOINT` - 컨테이너 기본 실행 명령**  
+### **9. `ENTRYPOINT` - 컨테이너 기본 실행 명령**  
 `CMD`와 유사하지만, **항상 실행**됩니다. `CMD`는 인자로 전달됩니다.  
 ```dockerfile
 ENTRYPOINT ["python3", "script.py"]
@@ -99,7 +100,7 @@ CMD ["--help"]
 
 ---
 
-### ✅ **10. `VOLUME` - 볼륨 마운트**  
+### **10. `VOLUME` - 볼륨 마운트**  
 컨테이너와 호스트 간의 **데이터 공유**를 위해 볼륨을 생성합니다.  
 ```dockerfile
 VOLUME ["/data"]
@@ -108,7 +109,7 @@ VOLUME ["/data"]
 
 ---
 
-### ✅ **11. `USER` - 실행할 사용자 지정**  
+### **11. `USER` - 실행할 사용자 지정**  
 컨테이너 실행 시 사용할 **사용자 계정**을 지정합니다.  
 ```dockerfile
 USER appuser
@@ -117,7 +118,7 @@ USER appuser
 
 ---
 
-### ✅ **12. `HEALTHCHECK` - 상태 확인**  
+### **12. `HEALTHCHECK` - 상태 확인**  
 컨테이너의 **정상 작동 여부**를 검사하는 명령어를 설정합니다.  
 ```dockerfile
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
@@ -126,7 +127,7 @@ HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
 
 ---
 
-### ✅ **13. `ARG` - 빌드 시 인자 전달**  
+### **13. `ARG` - 빌드 시 인자 전달**  
 **빌드 시점에만** 사용되는 변수입니다.  
 ```dockerfile
 ARG APP_VERSION=1.0
@@ -139,7 +140,7 @@ RUN echo "Building version $APP_VERSION"
 
 ---
 
-## 🚀 **Dockerfile 예제** (Node.js 앱)
+## **Dockerfile 예제** (Node.js 앱)
 
 ```dockerfile
 # 1. 베이스 이미지 지정
@@ -167,21 +168,21 @@ CMD ["node", "server.js"]
 
 ---
 
-## 🧪 **Dockerfile 빌드 및 실행**
+## **Dockerfile 빌드 및 실행**
 
-### 🔨 **이미지 빌드**
+### **이미지 빌드**
 ```bash
 docker build -t mynodeapp .
 ```
 
-### 🚀 **컨테이너 실행**
+### **컨테이너 실행**
 ```bash
 docker run -d -p 3000:3000 mynodeapp
 ```
 
 ---
 
-## 📝 **요약: Dockerfile 구조**  
+## **요약: Dockerfile 구조**  
 1️⃣ **FROM**: 베이스 이미지  
 2️⃣ **LABEL**: 메타데이터  
 3️⃣ **RUN**: 설치 및 설정 명령  
@@ -189,10 +190,10 @@ docker run -d -p 3000:3000 mynodeapp
 5️⃣ **WORKDIR**: 작업 경로  
 6️⃣ **ENV**: 환경 변수  
 7️⃣ **EXPOSE**: 포트 노출  
-8️⃣ **CMD/ENTRYPOINT**: 기본 실행 명령  
-9️⃣ **VOLUME**: 데이터 저장소  
-🔟 **USER**: 실행 사용자  
-1️⃣1️⃣ **HEALTHCHECK**: 상태 점검  
-1️⃣2️⃣ **ARG**: 빌드 인자  
-
+8️⃣ **CMD**: 기본 실행 명령  
+9️⃣ **ENTRYPOINT**: 기본 실행 명령 
+🔟 **VOLUME**: 데이터 저장소  
+1️⃣1️⃣ **USER**: 실행 사용자  
+1️⃣2️⃣ **HEALTHCHECK**: 상태 점검  
+1️⃣3️⃣ **ARG**: 빌드 인자
 ---
