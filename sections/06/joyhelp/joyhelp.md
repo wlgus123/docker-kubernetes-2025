@@ -2,6 +2,12 @@
 
 리눅스에서 docker-compose 명령어를 사용하려면 docker와는 별개로 docker-compose가 설치되어 있어야 합니다. 
 
+```
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+echo $PATH
+```
+
 - 버전 확인
 ```
 docker-compose --version
@@ -15,12 +21,16 @@ docker-compose up [옵션][서비스명]
 
 옵션
 설명
+
 -d
 백그라운드 실행
+
 --no-deps
 링크 서비스 실행하지 않음
+
 --build
 이미지 빌드
+
 -t
 타임아웃을 지정(기본 10초)
 참고로 특정 서비스들의 경우 백그라운드로 실행하지 않으면 컨테이너가 생성 및 실행되며 바로 종료될 수 있습니다.
